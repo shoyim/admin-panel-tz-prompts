@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--
+  MASTER LAYOUT — AdminLTE 2.4.18.
+  Loyiha shablonizatoriga (Blade / Django / Jinja2 / EJS / Twig / Yii) shu faylni ko'chiring.
+  [[ ... ]] — o'zgaruvchi joylar, <!-- SLOT: ... --> — sahifalar to'ldiradigan bloklar.
+  Assetlar CDN dan. Lokal kerak bo'lsa: scripts/install-assets.* ni ishga tushirib,
+  "https://cdn.jsdelivr.net/npm/" prefiksini "/admin/vendor/" ga almashtiring — qolgan yo'l bir xil.
+-->
+<html lang="[[LANG]]">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="csrf-token" content="[[CSRF_TOKEN]]">
+  <title>[[PAGE_TITLE]] | [[APP_NAME]]</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <!-- SLOT: plugin-css (faqat sahifaga kerakli plaginlar CSS i, AdminLTE dan OLDIN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/css/skins/skin-[[SKIN]].min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic&display=swap">
+  <link rel="stylesheet" href="[[ASSET_URL]]/admin.css">
+  <!-- SLOT: page-css -->
+</head>
+<body class="hold-transition skin-[[SKIN]] sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <a href="[[DASHBOARD_URL]]" class="logo">
+      <span class="logo-mini"><b>[[APP_SHORT]]</b></span>
+      <span class="logo-lg"><b>[[APP_NAME]]</b></span>
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Menyu</span>
+      </a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+
+          <!-- Bildirishnomalar -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <!-- faqat soni > 0 bo'lsa chiqaring -->
+              <span class="label label-warning">[[UNREAD_COUNT]]</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">[[UNREAD_COUNT]] ta yangi bildirishnoma</li>
+              <li>
+                <ul class="menu">
+                  <!-- LOOP: notifications -->
+                  <li><a href="[[NOTIFICATION_URL]]"><i class="fa fa-[[ICON]] text-aqua"></i> [[NOTIFICATION_TEXT]]</a></li>
+                </ul>
+              </li>
+              <li class="footer"><a href="[[NOTIFICATIONS_URL]]">Hammasini ko'rish</a></li>
+            </ul>
+          </li>
+
+          <!-- Til -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-globe"></i> <span class="hidden-xs">[[LANG_UPPER]]</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="[[SWITCH_LANG_URL_UZ]]">O'zbekcha</a></li>
+              <li><a href="[[SWITCH_LANG_URL_RU]]">Русский</a></li>
+            </ul>
+          </li>
+
+          <!-- Foydalanuvchi -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="[[USER_AVATAR]]" class="user-image" alt="">
+              <span class="hidden-xs">[[USER_NAME]]</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="user-header">
+                <img src="[[USER_AVATAR]]" class="img-circle" alt="">
+                <p>
+                  [[USER_NAME]] — [[USER_ROLE]]
+                  <small>[[USER_SINCE]]</small>
+                </p>
+              </li>
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="[[PROFILE_URL]]" class="btn btn-default btn-flat"><i class="fa fa-user"></i> Profil</a>
+                </div>
+                <div class="pull-right">
+                  <!-- Logout faqat POST + CSRF bilan -->
+                  <form action="[[LOGOUT_URL]]" method="post" data-no-lock>
+                    [[CSRF_FIELD]]
+                    <button type="submit" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> Chiqish</button>
+                  </form>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="[[USER_AVATAR]]" class="img-circle" alt="">
+        </div>
+        <div class="pull-left info">
+          <p>[[USER_NAME]]</p>
+          <a href="[[PROFILE_URL]]"><i class="fa fa-circle text-success"></i> [[USER_ROLE]]</a>
+        </div>
+      </div>
+
+      <!-- Menyu: konfiguratsiyadan generatsiya qilinadi, ruxsatsiz bandlar chiqmaydi.
+           Joriy sahifa: <li class="active">, ichki menyu ochiq: <li class="treeview active menu-open"> -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">ASOSIY</li>
+        <li><a href="[[DASHBOARD_URL]]"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <!-- LOOP: menu-items
+        <li><a href="[[URL]]"><i class="fa fa-[[ICON]]"></i> <span>[[TITLE]]</span>
+              <span class="pull-right-container"><small class="label pull-right bg-green">[[BADGE]]</small></span></a></li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-[[ICON]]"></i> <span>[[GROUP_TITLE]]</span>
+            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="[[URL]]"><i class="fa fa-circle-o"></i> [[TITLE]]</a></li>
+          </ul>
+        </li>
+        -->
+        <li class="header">TIZIM</li>
+        <li><a href="[[USERS_URL]]"><i class="fa fa-users"></i> <span>Foydalanuvchilar</span></a></li>
+        <li><a href="[[SETTINGS_URL]]"><i class="fa fa-cogs"></i> <span>Sozlamalar</span></a></li>
+      </ul>
+    </section>
+  </aside>
+
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        [[PAGE_TITLE]]
+        <small>[[PAGE_SUBTITLE]]</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="[[DASHBOARD_URL]]"><i class="fa fa-dashboard"></i> Bosh sahifa</a></li>
+        <!-- LOOP: breadcrumbs --><li><a href="[[URL]]">[[TITLE]]</a></li>
+        <li class="active">[[PAGE_TITLE]]</li>
+      </ol>
+    </section>
+
+    <section class="content">
+      <div id="flash-container">
+        <!-- LOOP: flash messages (type: success|danger|warning|info) -->
+        <!--
+        <div class="alert alert-[[TYPE]] alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <i class="icon fa fa-check"></i> [[MESSAGE]]
+        </div>
+        -->
+      </div>
+
+      <!-- SLOT: content -->
+
+    </section>
+  </div>
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs"><b>Versiya</b> [[APP_VERSION]]</div>
+    <strong>&copy; [[YEAR]] [[APP_NAME]].</strong> Barcha huquqlar himoyalangan.
+  </footer>
+</div>
+
+<!-- Umumiy tasdiqlash modali (admin.js ishlatadi) -->
+<div class="modal modal-danger fade" id="confirm-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Yopish"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><i class="fa fa-warning"></i> Tasdiqlang</h4>
+      </div>
+      <div class="modal-body"><p data-confirm-text></p></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Bekor qilish</button>
+        <button type="button" class="btn btn-outline" data-confirm-ok>Ha</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tartib muhim: jQuery -> Bootstrap -> plaginlar -> AdminLTE -> admin.js -> sahifa skripti -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-slimscroll@1.3.8/jquery.slimscroll.min.js"></script>
+<!-- SLOT: plugin-js (faqat sahifaga kerakli plaginlar) -->
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/js/adminlte.min.js"></script>
+<script src="[[ASSET_URL]]/admin.js"></script>
+<!-- SLOT: page-js -->
+</body>
+</html>

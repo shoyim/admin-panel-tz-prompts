@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!-- DEMO — barcha standart komponentlar bitta sahifada. Brauzerda to'g'ridan-to'g'ri ochiladi.
+     Stilni ko'z bilan solishtirish va JS xatolarini tekshirish uchun etalon. -->
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="csrf-token" content="demo-token">
+  <title>Demo | Admin</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datatables.net-bs@1.13.11/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/css/bootstrap-datepicker3.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icheck@1.0.2/skins/square/blue.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic&display=swap">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <a href="#" class="logo">
+      <span class="logo-mini"><b>A</b></span>
+      <span class="logo-lg"><b>Admin</b>Panel</span>
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Menyu</span></a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i><span class="label label-warning">3</span></a>
+            <ul class="dropdown-menu">
+              <li class="header">3 ta yangi bildirishnoma</li>
+              <li>
+                <ul class="menu">
+                  <li><a href="#"><i class="fa fa-shopping-cart text-green"></i> Yangi buyurtma #1024</a></li>
+                  <li><a href="#"><i class="fa fa-user-plus text-aqua"></i> 5 ta yangi foydalanuvchi</a></li>
+                  <li><a href="#"><i class="fa fa-warning text-yellow"></i> Omborda 2 ta mahsulot kam qoldi</a></li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">Hammasini ko'rish</a></li>
+            </ul>
+          </li>
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/img/avatar5.png" class="user-image" alt="">
+              <span class="hidden-xs">Shoyim</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="user-header">
+                <img src="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/img/avatar5.png" class="img-circle" alt="">
+                <p>Shoyim — Super admin<small>2024-yildan beri</small></p>
+              </li>
+              <li class="user-footer">
+                <div class="pull-left"><a href="#" class="btn btn-default btn-flat"><i class="fa fa-user"></i> Profil</a></div>
+                <div class="pull-right"><a href="#" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> Chiqish</a></div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <div class="user-panel">
+        <div class="pull-left image"><img src="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/img/avatar5.png" class="img-circle" alt=""></div>
+        <div class="pull-left info"><p>Shoyim</p><a href="#"><i class="fa fa-circle text-success"></i> Super admin</a></div>
+      </div>
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">ASOSIY</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li class="treeview active menu-open">
+          <a href="#"><i class="fa fa-shopping-bag"></i> <span>Katalog</span>
+            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Mahsulotlar</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Kategoriyalar</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><i class="fa fa-shopping-cart"></i> <span>Buyurtmalar</span>
+          <span class="pull-right-container"><small class="label pull-right bg-green">12</small></span></a></li>
+        <li class="header">TIZIM</li>
+        <li><a href="#"><i class="fa fa-users"></i> <span>Foydalanuvchilar</span></a></li>
+        <li><a href="#"><i class="fa fa-cogs"></i> <span>Sozlamalar</span></a></li>
+      </ul>
+    </section>
+  </aside>
+
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>Mahsulotlar <small>ro'yxat va forma namunasi</small></h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Bosh sahifa</a></li>
+        <li><a href="#">Katalog</a></li>
+        <li class="active">Mahsulotlar</li>
+      </ol>
+    </section>
+
+    <section class="content">
+      <div id="flash-container">
+        <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <i class="icon fa fa-check"></i> Mahsulot muvaffaqiyatli saqlandi.
+        </div>
+      </div>
+
+      <!-- Statistika kartalari -->
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner"><h3>150</h3><p>Bugungi buyurtmalar</p></div>
+            <div class="icon"><i class="fa fa-shopping-cart"></i></div>
+            <a href="#" class="small-box-footer">Batafsil <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner"><h3>12 450 000</h3><p>Bugungi tushum, so'm</p></div>
+            <div class="icon"><i class="fa fa-money"></i></div>
+            <a href="#" class="small-box-footer">Batafsil <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-yellow">
+            <div class="inner"><h3>44</h3><p>Yangi mijozlar</p></div>
+            <div class="icon"><i class="fa fa-user-plus"></i></div>
+            <a href="#" class="small-box-footer">Batafsil <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-red">
+            <div class="inner"><h3>2</h3><p>Kam qolgan tovarlar</p></div>
+            <div class="icon"><i class="fa fa-warning"></i></div>
+            <a href="#" class="small-box-footer">Batafsil <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtrlar -->
+      <div class="box box-default filters-box">
+        <div class="box-header with-border">
+          <h3 class="box-title"><i class="fa fa-filter"></i> Filtrlar</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          </div>
+        </div>
+        <div class="box-body">
+          <form data-dt-filter="#products-table">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Kategoriya</label>
+                  <select name="category_id" class="form-control" data-ui="select2" data-placeholder="Barchasi" data-allow-clear="true">
+                    <option></option><option value="1">Telefonlar</option><option value="2">Noutbuklar</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Sana</label>
+                  <input type="text" name="date" class="form-control" data-ui="date" placeholder="dd.mm.yyyy">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>&nbsp;</label>
+                  <div>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Qidirish</button>
+                    <button type="reset" class="btn btn-default">Tozalash</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Ro'yxat -->
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Mahsulotlar ro'yxati</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-danger btn-sm" data-bulk-action="delete" data-url="#" data-table="#products-table"><i class="fa fa-trash"></i> Tanlanganlarni o'chirish</button>
+            <a href="#" class="btn btn-default btn-sm"><i class="fa fa-file-excel-o"></i> Excel</a>
+            <a href="#" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Qo'shish</a>
+          </div>
+        </div>
+        <div class="box-body">
+          <table id="products-table" class="table table-bordered table-striped table-hover" data-ui="datatable" data-order='[[1,"desc"]]'>
+            <thead>
+              <tr>
+                <th class="col-check" data-orderable="false"><input type="checkbox" data-check-all></th>
+                <th class="col-id">ID</th>
+                <th>Rasm</th>
+                <th>Nomi</th>
+                <th>Narxi</th>
+                <th>Holati</th>
+                <th class="col-actions" data-orderable="false">Amallar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-check"><input type="checkbox" name="ids[]" value="3"></td>
+                <td>3</td>
+                <td><img src="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/img/default-50x50.gif" class="img-thumb" alt=""></td>
+                <td>iPhone 15 Pro</td>
+                <td>14 990 000 so'm</td>
+                <td><span class="label label-success">Faol</span></td>
+                <td class="col-actions">
+                  <a href="#" class="btn btn-default btn-xs" title="Ko'rish"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="btn btn-primary btn-xs" title="Tahrirlash"><i class="fa fa-pencil"></i></a>
+                  <button type="button" class="btn btn-danger btn-xs" title="O'chirish" data-delete data-url="#"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-check"><input type="checkbox" name="ids[]" value="2"></td>
+                <td>2</td>
+                <td><img src="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/img/default-50x50.gif" class="img-thumb" alt=""></td>
+                <td>MacBook Air M3</td>
+                <td>16 500 000 so'm</td>
+                <td><span class="label label-warning">Qoralama</span></td>
+                <td class="col-actions">
+                  <a href="#" class="btn btn-default btn-xs" title="Ko'rish"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="btn btn-primary btn-xs" title="Tahrirlash"><i class="fa fa-pencil"></i></a>
+                  <button type="button" class="btn btn-danger btn-xs" title="O'chirish" data-delete data-url="#"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-check"><input type="checkbox" name="ids[]" value="1"></td>
+                <td>1</td>
+                <td><img src="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/img/default-50x50.gif" class="img-thumb" alt=""></td>
+                <td>Samsung Galaxy S24</td>
+                <td>11 200 000 so'm</td>
+                <td><span class="label label-default">Arxiv</span></td>
+                <td class="col-actions">
+                  <a href="#" class="btn btn-default btn-xs" title="Ko'rish"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="btn btn-primary btn-xs" title="Tahrirlash"><i class="fa fa-pencil"></i></a>
+                  <button type="button" class="btn btn-danger btn-xs" title="O'chirish" data-delete data-url="#"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Forma -->
+      <form action="#" method="post" onsubmit="return false" data-no-lock>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="box box-primary">
+              <div class="box-header with-border"><h3 class="box-title">Asosiy ma'lumotlar</h3></div>
+              <div class="box-body">
+                <div class="form-group has-error">
+                  <label for="title" class="required">Nomi</label>
+                  <input type="text" id="title" name="title" class="form-control" value="" required maxlength="255">
+                  <span class="help-block">Nomi maydoni to'ldirilishi shart.</span>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="price" class="required">Narxi</label>
+                      <div class="input-group">
+                        <input type="number" id="price" name="price" class="form-control" min="0" step="1000" required>
+                        <span class="input-group-addon">so'm</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="phone">Telefon</label>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="text" id="phone" name="phone" class="form-control" data-ui="phone">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tags">Teglar</label>
+                  <select id="tags" name="tags[]" class="form-control" multiple data-ui="select2" data-tags="true">
+                    <option selected>yangi</option><option>chegirma</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="description">Tavsif</label>
+                  <textarea id="description" name="description" class="form-control" rows="4"></textarea>
+                  <p class="help-block">Real loyihada <code>data-ui="editor"</code> atributi bilan CKEditor ulanadi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box box-default">
+              <div class="box-header with-border"><h3 class="box-title">Nashr</h3></div>
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="status">Holati</label>
+                  <select id="status" name="status" class="form-control">
+                    <option value="draft">Qoralama</option><option value="active">Faol</option><option value="archived">Arxiv</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="published_at">Nashr sanasi</label>
+                  <input type="text" id="published_at" name="published_at" class="form-control" data-ui="date">
+                </div>
+                <div class="form-group">
+                  <div class="checkbox"><label><input type="checkbox" name="is_featured" value="1" class="icheck"> Tavsiya etilgan</label></div>
+                </div>
+              </div>
+              <div class="box-footer">
+                <a href="#" class="btn btn-default">Bekor qilish</a>
+                <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Saqlash</button>
+              </div>
+            </div>
+            <div class="box box-default">
+              <div class="box-body">
+                <div class="empty-state">
+                  <i class="fa fa-inbox"></i>
+                  Ma'lumot topilmadi
+                  <p><a href="#" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Qo'shish</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs"><b>Versiya</b> 1.0.0</div>
+    <strong>&copy; 2026 AdminPanel.</strong> Barcha huquqlar himoyalangan.
+  </footer>
+</div>
+
+<div class="modal modal-danger fade" id="confirm-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Yopish"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><i class="fa fa-warning"></i> Tasdiqlang</h4>
+      </div>
+      <div class="modal-body"><p data-confirm-text></p></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Bekor qilish</button>
+        <button type="button" class="btn btn-outline" data-confirm-ok>Ha</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-slimscroll@1.3.8/jquery.slimscroll.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/datatables.net@1.13.11/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/datatables.net-bs@1.13.11/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/locales/bootstrap-datepicker.uz-latn.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/icheck@1.0.2/icheck.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.8/dist/jquery.inputmask.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/js/adminlte.min.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

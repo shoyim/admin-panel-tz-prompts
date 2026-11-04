@@ -1,0 +1,60 @@
+# AdminLTE 2.4.18 admin panel uchun vendor fayllar ro'yxati.
+# Har qator — https://cdn.jsdelivr.net/npm/ dan keyingi yo'l. Lokal nusxa ham xuddi shu yo'lda saqlanadi,
+# shuning uchun layoutda faqat prefiksni almashtirish kifoya:
+#   https://cdn.jsdelivr.net/npm/  ->  /admin/vendor/
+# "#" bilan boshlangan qatorlar e'tiborga olinmaydi. Kerak bo'lmagan plaginni o'chirib qo'yish mumkin.
+
+# --- Yadro (har doim)
+jquery@3.7.1/dist/jquery.min.js
+bootstrap@3.4.1/dist/css/bootstrap.min.css
+bootstrap@3.4.1/dist/js/bootstrap.min.js
+bootstrap@3.4.1/dist/fonts/glyphicons-halflings-regular.woff2
+bootstrap@3.4.1/dist/fonts/glyphicons-halflings-regular.woff
+bootstrap@3.4.1/dist/fonts/glyphicons-halflings-regular.ttf
+font-awesome@4.7.0/css/font-awesome.min.css
+font-awesome@4.7.0/fonts/fontawesome-webfont.woff2
+font-awesome@4.7.0/fonts/fontawesome-webfont.woff
+font-awesome@4.7.0/fonts/fontawesome-webfont.ttf
+font-awesome@4.7.0/fonts/fontawesome-webfont.eot
+admin-lte@2.4.18/dist/css/AdminLTE.min.css
+admin-lte@2.4.18/dist/css/skins/_all-skins.min.css
+admin-lte@2.4.18/dist/css/skins/skin-blue.min.css
+admin-lte@2.4.18/dist/css/skins/skin-black.min.css
+admin-lte@2.4.18/dist/css/skins/skin-purple.min.css
+admin-lte@2.4.18/dist/css/skins/skin-green.min.css
+admin-lte@2.4.18/dist/css/skins/skin-red.min.css
+admin-lte@2.4.18/dist/css/skins/skin-yellow.min.css
+admin-lte@2.4.18/dist/js/adminlte.min.js
+admin-lte@2.4.18/dist/img/avatar.png
+admin-lte@2.4.18/dist/img/avatar5.png
+admin-lte@2.4.18/dist/img/default-50x50.gif
+jquery-slimscroll@1.3.8/jquery.slimscroll.min.js
+
+# --- Jadval
+datatables.net@1.13.11/js/jquery.dataTables.min.js
+datatables.net-bs@1.13.11/css/dataTables.bootstrap.min.css
+datatables.net-bs@1.13.11/js/dataTables.bootstrap.min.js
+
+# --- Formalar
+select2@4.0.13/dist/css/select2.min.css
+select2@4.0.13/dist/js/select2.min.js
+select2@4.0.13/dist/js/i18n/ru.js
+bootstrap-datepicker@1.10.0/dist/css/bootstrap-datepicker3.min.css
+bootstrap-datepicker@1.10.0/dist/js/bootstrap-datepicker.min.js
+bootstrap-datepicker@1.10.0/dist/locales/bootstrap-datepicker.uz-latn.min.js
+bootstrap-datepicker@1.10.0/dist/locales/bootstrap-datepicker.ru.min.js
+icheck@1.0.2/icheck.min.js
+icheck@1.0.2/skins/square/blue.css
+icheck@1.0.2/skins/square/blue.png
+icheck@1.0.2/skins/square/blue@2x.png
+inputmask@5.0.8/dist/jquery.inputmask.min.js
+
+# --- Grafiklar
+chart.js@4.4.1/dist/chart.umd.min.js
+
+# --- Yuklanish indikatori
+pace-js@1.2.4/pace.min.js
+pace-js@1.2.4/themes/blue/pace-theme-minimal.css
+
+# CKEditor 4 juda ko'p fayldan iborat — CDN dan ulang:
+# https://cdn.jsdelivr.net/npm/ckeditor4@4.22.1/ckeditor.js
