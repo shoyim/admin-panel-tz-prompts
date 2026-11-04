@@ -1,0 +1,27 @@
+name: Promptda xato / kamchilik
+description: Prompt AI dan noto'g'ri yoki to'liq bo'lmagan natija berdi
+labels: ["bug"]
+body:
+  - type: input
+    id: fayl
+    attributes:
+      label: Fayl
+      placeholder: "prompts/modules/crud.md"
+    validations:
+      required: true
+  - type: input
+    id: ai
+    attributes:
+      label: Qaysi AI va stack bilan sinaldi
+      placeholder: "Claude / ChatGPT / Cursor, Laravel 11"
+  - type: textarea
+    id: muammo
+    attributes:
+      label: Muammo
+      description: Nima kutilgan edi va nima chiqdi
+    validations:
+      required: true
+  - type: textarea
+    id: taklif
+    attributes:
+      label: Tuzatish taklifi

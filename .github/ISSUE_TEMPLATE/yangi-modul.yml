@@ -1,0 +1,28 @@
+name: Yangi modul / stack taklifi
+description: Yangi modul, stack yoki misol prompt taklif qilish
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: turi
+    attributes:
+      label: Turi
+      options:
+        - Modul (prompts/modules)
+        - Stack (prompts/stacks)
+        - Misol (examples)
+    validations:
+      required: true
+  - type: input
+    id: nomi
+    attributes:
+      label: Nomi
+      placeholder: "masalan: Ombor hisobi moduli"
+    validations:
+      required: true
+  - type: textarea
+    id: tavsif
+    attributes:
+      label: Nimalar bo'lishi kerak
+      description: Asosiy funksiyalar, maydonlar, AdminLTE komponentlari
+    validations:
+      required: true
