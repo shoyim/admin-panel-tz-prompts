@@ -2,12 +2,31 @@
 
 Har qanday loyihaga (Laravel, Django, Node.js, oddiy PHP va h.k.) **AdminLTE 2.4.18** shabloni asosida admin panel qurish uchun tayyor **texnik topshiriq (TZ) promptlari** to'plami.
 
+## ⚡ Eng tez yo'l
+
+| Siz ishlatadigan AI | Nima qilish kerak |
+|---|---|
+| **Claude Code** | [`skills/adminlte-admin-panel`](skills/adminlte-admin-panel) skill'ini o'rnating ([yo'riqnoma](ADMIN-PROMPT.md#claude-code-uchun-skill-sifatida-ornatish)), so'ng loyihada: *"shu loyihaga admin panel qilib ber"* |
+| **ChatGPT, Cursor, Copilot, Windsurf** | [`ADMIN-PROMPT.md`](ADMIN-PROMPT.md) dagi bitta promptni loyiha ochiq turgan holda yuboring |
+
+Ikkala holatda ham AI loyihangizni o'zi o'rganadi: stack, modellar, auth. Keyin AdminLTE 2.4.18 uslubida layout, login,
+rollar, CRUD, dashboard, sozlamalar va audit logni quradi, har bir sahifani headless brauzerda xatoga tekshiradi.
+Stil yagona, sinovdan o'tgan kitdan olinadi: [`assets/demo.html`](skills/adminlte-admin-panel/assets/demo.html).
+
+Quyidagi alohida modul promptlari bosqichma-bosqich, qo'lda boshqarib ishlash uchun.
+
 Promptlar AI yordamchiga (Claude, ChatGPT, Cursor va h.k.) to'g'ridan-to'g'ri berish uchun yozilgan: `{{...}}` ichidagi joylarni o'z loyihangizga moslab to'ldirasiz va nusxalab yuborasiz.
 
 ## Tuzilma
 
 ```
 .
+├── ADMIN-PROMPT.md              # ⚡ Bitta universal prompt (istalgan AI uchun)
+├── skills/adminlte-admin-panel/ # ⚡ Claude Code skill: stil kiti, qo'llanmalar, tekshiruv skripti
+│   ├── SKILL.md
+│   ├── references/              # style-guide, components, stacks, pitfalls
+│   ├── assets/                  # layout.html, login.html, demo.html, admin.js, admin.css, assets.txt
+│   └── scripts/                 # check_page.py, install-assets.sh/.ps1
 ├── 00-MASTER-TZ.md              # Asosiy universal TZ prompt (shu yerdan boshlang)
 ├── 01-UMUMIY-TALABLAR.md        # Barcha adminkalar uchun majburiy standartlar
 ├── 02-ADMINLTE-KOMPONENTLAR.md  # AdminLTE sahifa/plaginlari -> funksiya xaritasi

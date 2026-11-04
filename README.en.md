@@ -6,6 +6,17 @@ The prompts are written to be pasted directly into an AI assistant (Claude, Chat
 
 > The prompts themselves are written in Uzbek (Latin script). 🇺🇿 Uzbek README: [README.md](README.md)
 
+## ⚡ Fastest path
+
+| Your AI | What to do |
+|---|---|
+| **Claude Code** | Install the [`skills/adminlte-admin-panel`](skills/adminlte-admin-panel) skill ([instructions](ADMIN-PROMPT.md#claude-code-uchun-skill-sifatida-ornatish)), then in any project say *"build an admin panel for this project"* |
+| **ChatGPT, Cursor, Copilot, Windsurf** | Send the single prompt from [`ADMIN-PROMPT.md`](ADMIN-PROMPT.md) with your project open |
+
+The AI inspects your project (stack, models, auth), builds layout, login, RBAC, CRUD, dashboard, settings and audit log
+in the AdminLTE 2.4.18 style from a tested kit (`admin.js` / `admin.css` / markup catalog), and checks every page for
+JS errors in a headless browser. Style reference: [`assets/demo.html`](skills/adminlte-admin-panel/assets/demo.html).
+
 ## Contents
 
 | Path | What it is |

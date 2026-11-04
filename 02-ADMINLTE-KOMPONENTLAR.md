@@ -59,6 +59,10 @@ AI ga aniq ko'rsatma berish uchun: qaysi funksiya uchun AdminLTE ning qaysi sahi
 
 ## Telefon raqam (O'zbekiston) maskasi
 
-```js
-$('[data-mask-phone]').inputmask('+998 (99) 999-99-99');
+`skills/adminlte-admin-panel/assets/admin.js` ulanganda JS yozish shart emas:
+
+```html
+<input type="text" name="phone" class="form-control" data-ui="phone">
 ```
+
+> To'liq, sinovdan o'tgan markup katalogi: [`skills/adminlte-admin-panel/references/components.md`](skills/adminlte-admin-panel/references/components.md)
