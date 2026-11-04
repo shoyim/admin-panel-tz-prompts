@@ -23,19 +23,33 @@ Promptlar AI yordamchiga (Claude, ChatGPT, Cursor va h.k.) to'g'ridan-to'g'ri be
 │   │   ├── notifications.md
 │   │   ├── reports-export.md
 │   │   ├── audit-log.md
-│   │   └── profile.md
+│   │   ├── profile.md
+│   │   ├── payments.md          # Payme, Click
+│   │   ├── sms-telegram.md      # Eskiz SMS, Telegram bot
+│   │   ├── import.md            # Excel/CSV import
+│   │   ├── i18n-content.md      # Ko'p tillilik
+│   │   ├── api-keys.md          # API kalitlar, webhooklar
+│   │   └── backup-system.md     # Backup, tizim holati, loglar
 │   └── stacks/                  # Texnologiyaga moslashtirish promptlari
 │       ├── laravel-blade.md
 │       ├── laravel-api-spa.md
 │       ├── django.md
+│       ├── fastapi.md
 │       ├── node-express.md
+│       ├── nextjs.md
+│       ├── yii2.md
+│       ├── plain-php.md
 │       └── static-html.md
 └── examples/                    # To'ldirilgan real misollar
     ├── internet-dokon.md
     ├── kutubxona.md
     ├── test-quiz-platforma.md
-    └── crm.md
+    ├── crm.md
+    ├── restoran-yetkazib-berish.md
+    └── klinika.md
 ```
+
+> 🇬🇧 English: [README.en.md](README.en.md)
 
 ## Qanday foydalanish
 
@@ -56,7 +70,14 @@ Promptlar AI yordamchiga (Claude, ChatGPT, Cursor va h.k.) to'g'ridan-to'g'ri be
 | 5 | `modules/dashboard.md` | Statistik kartalar, grafiklar |
 | 6 | `modules/settings.md`, `media-files.md` | Sozlamalar, fayllar |
 | 7 | `modules/reports-export.md`, `audit-log.md`, `notifications.md` | Hisobot, log, bildirishnoma |
-| 8 | `03-QABUL-CHECKLIST.md` | Yakuniy tekshiruv |
+| 8 | Kerak bo'lsa: `payments.md`, `sms-telegram.md`, `import.md`, `i18n-content.md`, `api-keys.md` | Integratsiyalar |
+| 9 | `modules/backup-system.md` | Backup va monitoring |
+| 10 | `03-QABUL-CHECKLIST.md` | Yakuniy tekshiruv |
+
+## Hissa qo'shish
+
+Yangi modul, stack yoki misol taklif qilish uchun [Issue](../../issues/new/choose) oching yoki Pull Request yuboring.
+Prompt yozish qoidalari: o'zbek tilida (lotin), `{{PLACEHOLDER}}` lar katta harfda, har prompt ```` ```text ```` blokida.
 
 ## Litsenziya
 
